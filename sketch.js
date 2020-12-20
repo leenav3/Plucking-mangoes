@@ -30,7 +30,7 @@ function setup() {
 	mango8 = new Mango(870,300,40);
 	mango9 = new Mango(750,350,35);
 	mango10 = new Mango(820,340,40);
-	stone = new Stone(140,540,20);
+	stone = new Stone(140,530,20);
 
 	launcher = new Launcher(stone.body,{x:140,y:520});
 
