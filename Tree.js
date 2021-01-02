@@ -12,12 +12,14 @@ class Tree {
     }
     display(){
         var pos =this.body.position;
+        push ();
         fill("white");
         noStroke();
-        rectMode(CENTER);
-        rect(pos.x, pos.y, this.width, this.height);
+       // rectMode(CENTER);
+       // rect(pos.x, pos.y, this.width, this.height);
         imageMode(CENTER);
         image(this.image,this.body.position.x,this.body.position.y,400,this.height);
+        pop ()
       }
     
 };

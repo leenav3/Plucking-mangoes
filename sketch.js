@@ -20,9 +20,9 @@ function setup() {
 	//Create the Bodies Here.
 	ground = new Ground(600,680,1200,20);
 	tree = new Tree(900,419,100,500);
-	mango1 = new Mango(900,400,35);
-	mango2 = new Mango(820,250,35);
-	mango3 = new Mango(1000,300,40);
+	mango1 = new Mango(900,400,45);
+	mango2 = new Mango(820,250,45);
+	mango3 = new Mango(1000,300,50);
 	mango4 = new Mango(970,370,30);
 	mango5 = new Mango(1050,350,25);
 	mango6 = new Mango(800,400,35);
@@ -30,7 +30,7 @@ function setup() {
 	mango8 = new Mango(870,300,40);
 	mango9 = new Mango(750,350,35);
 	mango10 = new Mango(820,340,40);
-	stone = new Stone(140,530,20);
+	stone = new Stone(140,530,40);
 
 	launcher = new Launcher(stone.body,{x:140,y:520});
 
@@ -41,8 +41,11 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background("white");
+  background("lightgreen");
+  textSize(20)
+  text("press space to get another chance",50,50)
   
+
   ground.display();
   tree.display();
   mango1.display();
@@ -57,8 +60,8 @@ function draw() {
   mango10.display();
 
  
-  
-  image(boyImg,200,590,200,300);
+  imageMode (CENTER)
+  image(boyImg,200,height-100,200,300);
   stone.display();
   launcher.display();
   detectCollision(stone,mango1);
@@ -87,6 +90,7 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode === 32){
+        Matter.Body.setPosition(stone.body, {x: 235 , y: 420});
         launcher.attach(stone.body);
     }
 }
@@ -97,7 +101,7 @@ mpos = Lmango.body.position
 spos = Lstone.body.position
 
 var distance = dist(spos.x,spos.y,mpos.x,mpos.y)
-	if(distance<=Lmango.diameter/2+Lstone.diameter/2){
+	if(distance<=Lmango.diameter+Lstone.diameter){
 		Matter.Body.setStatic(Lmango.body,false);
 	}
 }
